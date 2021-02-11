@@ -1,0 +1,23 @@
+[process]
+command = "wob"
+args = ["--background-color", "#55000000", "-b 0", "--bar-color", "#aaffffff"]
+
+[[commands]]
+name = "volume_up"
+command = "amixer"
+args = ["sset", "Master", "5%+"]
+
+[[commands]]
+name = "volume_down"
+command = "amixer"
+args = ["sset", "Master", "5%-"]
+
+[[commands]]
+name = "brightness_down"
+command = "brightnessctl"
+args = ["s", "5%-"]
+
+[[commands]]
+name = "brightness_up"
+command = "brightnessctl"
+args = ["s", "5%+"]

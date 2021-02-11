@@ -1,0 +1,24 @@
+[package]
+name = "barrette"
+version = "0.1.0"
+authors = ["Luka Peschke <mail@lukapeschke.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+regex = "1"
+sysinfo = {version = "^0.16", default-features = false}
+anyhow = "1.0.38"
+libc = "0.2.86"
+structopt = {version = "^0.3", default-features = false}
+toml = "0.5.8"
+serde = "1.0.123"
+serde_derive = "1.0.123"
+log = "0.4.14"
+env_logger =  {version = "0.8.3", default-features = false}
+shellexpand = "2.1.0"
+
+[[bin]]
+name = "brt"
+path = "src/main.rs"
