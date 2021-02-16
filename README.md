@@ -12,7 +12,11 @@ I created it because I found these tools nice, but a bit cumbersome to use. The 
 
 ## Installation
 
-### With cargo
+### From a pre-built executable
+
+Grab a release from the [releases](https://github.com/lukapeschke/barrette/releases) page.
+
+### From source (requires a recent rust version to be installed)
 
 ```
 cargo install --branch main --git https://github.com/lukapeschke/barrette
