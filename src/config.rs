@@ -7,6 +7,7 @@ use regex::Regex;
 #[derive(Deserialize, Debug)]
 pub struct Process {
     command: String,
+    lock_path: Option<String>,
     args: Option<Vec<String>>,
     fifo_path: Option<String>,
     fifo_mode: Option<u32>,
@@ -29,6 +30,10 @@ impl Process {
 
     pub fn fifo_mode(&self) -> &Option<u32> {
         &self.fifo_mode
+    }
+
+    pub fn lock_path(&self) -> &Option<String> {
+        &self.lock_path
     }
 }
 
