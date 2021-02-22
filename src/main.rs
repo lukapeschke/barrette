@@ -1,5 +1,6 @@
 mod config;
 mod fifo;
+mod pid_lock;
 mod process;
 
 use std::io::Write;
@@ -9,6 +10,7 @@ use regex::Regex;
 use structopt::StructOpt;
 
 use crate::fifo::Fifo;
+use crate::pid_lock::PidLock;
 use crate::process::Process;
 
 #[derive(StructOpt)]
@@ -79,6 +81,13 @@ fn main() -> Result<()> {
     let conf_path = shellexpand::full(&opt.config)?;
     let conf =
         config::Config::from_config_file(&conf_path).context("could not read config file")?;
+
+    let mut lock = PidLock::new(match conf.process().lock_path() {
+        Some(s) => &s,
+        None => "/tmp/barrette.pid",
+    });
+    lock.acquire()?;
+
     ensure_proc_is_running(&conf)?;
 
     let percentage = get_percentage_from_command(&conf, &opt.command)?;
