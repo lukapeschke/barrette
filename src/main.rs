@@ -11,7 +11,7 @@ use structopt::StructOpt;
 
 use crate::fifo::Fifo;
 use crate::pid_lock::PidLock;
-use crate::process::Process;
+use crate::process::{Process, ProcessDesc};
 
 #[derive(StructOpt)]
 #[structopt(name = "brt", about = "A bar wrapper")]
@@ -88,9 +88,15 @@ fn main() -> Result<()> {
     });
     lock.acquire()?;
 
-    ensure_proc_is_running(&conf)?;
+    ensure_proc_is_running(&conf).with_context(|| {
+        anyhow!(
+            "Could not ensure process {} is running",
+            &conf.process().command()
+        )
+    })?;
 
-    let percentage = get_percentage_from_command(&conf, &opt.command)?;
+    let percentage = get_percentage_from_command(&conf, &opt.command)
+        .with_context(|| "Could not extract percentage from command")?;
     log::debug!("Extracted percentage is {}", percentage);
 
     let mut fifo_file = Fifo::from_process(conf.process())
