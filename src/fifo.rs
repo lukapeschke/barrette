@@ -22,7 +22,7 @@ impl Fifo {
 
     pub fn from_process(proc: &config::Process) -> Self {
         let path = match proc.fifo_path() {
-            Some(s) => &s,
+            Some(s) => s,
             None => "/tmp/barrette_fifo",
         };
         Self::new(path, proc.fifo_mode().unwrap_or(0o600))

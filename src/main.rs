@@ -68,7 +68,7 @@ fn get_percentage_from_command(conf: &config::Config, name: &str) -> Result<u32>
     let raw_percentage = extract_percentage(&output, &re)
         .ok_or_else(|| anyhow!("Could not extract percentage from command output"))?;
     raw_percentage
-        .replace("%", "")
+        .replace('%', "")
         .parse()
         .context("Could not extract u32 from percentage")
 }
@@ -83,7 +83,7 @@ fn main() -> Result<()> {
         config::Config::from_config_file(&conf_path).context("could not read config file")?;
 
     let mut lock = PidLock::new(match conf.process().lock_path() {
-        Some(s) => &s,
+        Some(s) => s,
         None => "/tmp/barrette.pid",
     });
     lock.acquire()?;
