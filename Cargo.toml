@@ -13,7 +13,7 @@ anyhow = "1.0.38"
 libc = "0.2.86"
 structopt = {version = "^0.3", default-features = false}
 toml = "0.5.8"
-serde = "1.0.123"
+serde = "1.0.185"
 serde_derive = "1.0.123"
 log = "0.4.14"
 env_logger =  {version = "0.8.3", default-features = false}
