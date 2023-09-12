@@ -17,7 +17,7 @@ serde = "1.0.185"
 serde_derive = "1.0.147"
 log = "0.4.14"
 env_logger =  {version = "0.10.0", default-features = false}
-shellexpand = "2.1.0"
+shellexpand = "3.1.0"
 
 [[bin]]
 name = "brt"
