@@ -10,7 +10,7 @@ edition = "2018"
 regex = "1"
 sysinfo = {version = "^0.16", default-features = false}
 anyhow = "1.0.75"
-libc = "0.2.148"
+libc = "0.2.150"
 structopt = {version = "^0.3", default-features = false}
 toml = "0.8.0"
 serde = "1.0.185"
