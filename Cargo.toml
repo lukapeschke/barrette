@@ -9,7 +9,7 @@ edition = "2018"
 [dependencies]
 regex = "1"
 sysinfo = {version = "^0.16", default-features = false}
-anyhow = "1.0.75"
+anyhow = "1.0.77"
 libc = "0.2.151"
 structopt = {version = "^0.3", default-features = false}
 toml = "0.8.8"
