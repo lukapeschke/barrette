@@ -9,14 +9,14 @@ edition = "2018"
 [dependencies]
 regex = "1"
 sysinfo = {version = "^0.30", default-features = false}
-anyhow = "1.0.82"
-libc = "0.2.152"
+anyhow = "1.0.86"
+libc = "0.2.155"
 structopt = {version = "^0.3", default-features = false}
 toml = "0.8.12"
 serde = "1.0.185"
 serde_derive = "1.0.147"
 log = "0.4.20"
-env_logger =  {version = "0.11.2", default-features = false}
+env_logger =  {version = "0.11.3", default-features = false}
 shellexpand = "3.1.0"
 
 [[bin]]
