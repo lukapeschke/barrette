@@ -1,6 +1,6 @@
 [process]
 command = "wob"
-args = ["--background-color", "#55000000", "-b 0", "--bar-color", "#aaffffff"]
+args = []
 
 [[commands]]
 name = "volume_up"

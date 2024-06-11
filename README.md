@@ -41,7 +41,7 @@ It is composed of a **process** and an array of **commands**:
 # required, name of the command to use
 command = "wob"
 # optional, array of arguments to pass to the command
-args = ["--background-color", "#55000000", "-b 0", "--bar-color", "#aaffffff"]
+args = []
 # optional, path of the FIFO to create that will be used as the command's STDIN. Defaults to "/tmp/barrette_fifo"
 fifo_path = "/tmp/barrette_fifo"
 # optional, permissions of the FIFO in octal notation (prefixed with 0o)
