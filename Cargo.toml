@@ -1,6 +1,6 @@
 [package]
 name = "barrette"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["Luka Peschke <mail@lukapeschke.com>"]
 edition = "2018"
 
