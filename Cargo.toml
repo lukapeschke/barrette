@@ -12,7 +12,7 @@ sysinfo = {version = "^0.30", default-features = false}
 anyhow = "1.0.86"
 libc = "0.2.155"
 structopt = {version = "^0.3", default-features = false}
-toml = "0.8.16"
+toml = "0.8.17"
 serde = "1.0.185"
 serde_derive = "1.0.147"
 log = "0.4.22"
