@@ -41,8 +41,8 @@ impl Process {
         sysinfo::System::new_with_specifics(
             RefreshKind::new().with_processes(ProcessRefreshKind::everything()),
         )
-        .processes_by_exact_name(&self.name)
-        .any(|p| p.name() == self.name)
+        .processes_by_exact_name(self.name.as_ref())
+        .any(|p| *p.name() == *self.name)
     }
 
     pub fn spawn(&self, fifo_path: &str) -> Result<()> {
