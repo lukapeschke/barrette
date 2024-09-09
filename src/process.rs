@@ -27,14 +27,7 @@ impl Process {
     }
 
     pub fn from_process_desc<T: ProcessDesc>(desc: &T) -> Self {
-        Self::new(
-            desc.command(),
-            if let Some(arg_slice) = desc.args() {
-                arg_slice
-            } else {
-                &[]
-            },
-        )
+        Self::new(desc.command(), desc.args().unwrap_or(&vec![]))
     }
 
     pub fn is_running(&self) -> bool {
