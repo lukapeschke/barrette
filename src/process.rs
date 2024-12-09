@@ -1,5 +1,5 @@
 use anyhow::{anyhow, Context, Result};
-use sysinfo::{ProcessRefreshKind, RefreshKind};
+use sysinfo::RefreshKind;
 
 use log::info;
 
@@ -31,11 +31,9 @@ impl Process {
     }
 
     pub fn is_running(&self) -> bool {
-        sysinfo::System::new_with_specifics(
-            RefreshKind::new().with_processes(ProcessRefreshKind::everything()),
-        )
-        .processes_by_exact_name(self.name.as_ref())
-        .any(|p| *p.name() == *self.name)
+        sysinfo::System::new_with_specifics(RefreshKind::everything())
+            .processes_by_exact_name(self.name.as_ref())
+            .any(|p| *p.name() == *self.name)
     }
 
     pub fn spawn(&self, fifo_path: &str) -> Result<()> {
