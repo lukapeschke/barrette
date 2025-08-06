@@ -97,14 +97,14 @@ fn main() -> Result<()> {
 
     let percentage = get_percentage_from_command(&conf, &opt.command)
         .with_context(|| "Could not extract percentage from command")?;
-    log::debug!("Extracted percentage is {}", percentage);
+    log::debug!("Extracted percentage is {percentage}");
 
     let mut fifo_file = Fifo::from_process(conf.process())
         .open_w()
         .context("could open FIFO for writing")?;
 
     fifo_file
-        .write_all(format!("{}\n", percentage).as_bytes())
+        .write_all(format!("{percentage}\n").as_bytes())
         .context("Could not write into FIFO")?;
 
     fifo_file.flush().context("Could not flush FIFO")
