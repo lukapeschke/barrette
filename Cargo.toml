@@ -15,7 +15,7 @@ structopt = {version = "^0.3", default-features = false}
 toml = "0.9.5"
 serde = "1.0.185"
 serde_derive = "1.0.147"
-log = "0.4.28"
+log = "0.4.29"
 env_logger =  {version = "0.11.8", default-features = false}
 shellexpand = "3.1.1"
 
